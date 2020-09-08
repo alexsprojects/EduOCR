@@ -1,0 +1,6 @@
+1. Go to bin > Debug and then run the EdPerfectInterface.exe file.
+2. Go to Education Perfect, and print out the answer sheet as a OneNote Windows 10 file.
+3. Copy all of the answers and put them in the Configure Data text box. Make sure that when you paste in the answers, that you put the english word before the other 
+language and seperate them both by a space.
+4. Go to the Education Perfect task and start doing the questions. Once the first question pops up you will need to Ctrl + about twice to zoom in.
+5. Start the program and it will use the Tesseract OCR package to start answering your questions for you!
