@@ -74,7 +74,7 @@ namespace EdPerfectInterface
         {
             for(int i = 0; i <= vs.Count; i++)
             {
-                //if (strRes.Contains(vs[i]))
+                if (strRes.Contains(vs[i]))
                 {
                     DoubleSTR res = new DoubleSTR();
                     res.EnglishWord = vs[i];
