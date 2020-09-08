@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -63,20 +63,35 @@ namespace EdPerfectInterface
         private void button1_Click(object sender, EventArgs e)
         {
             // Bitmap img = new Bitmap("TesseractOCRTestImage.png");
-            Bitmap img = TakeScreenshot();
-            TesseractEngine engine = new TesseractEngine("./tessdata", "eng", EngineMode.Default);
-            Page page = engine.Process(img, PageSegMode.Auto);
-            string result = page.GetText();
-            listBox1.Items.Add(result);
-            string translation = FilterOutput(result);
+           for(int i = 0; i < 100; i++)
+            {
+                Bitmap img = TakeScreenshot();
+                TesseractEngine engine = new TesseractEngine("./tessdata", "eng", EngineMode.Default);
+                Page page = engine.Process(img, PageSegMode.Auto);
+                string result = page.GetText();
+                listBox1.Items.Add(result);
+                string translation = FilterOutput(result);
+                AutoWrite(translation);
+            }
         }
-        DoubleSTR FilterOutput(string strRes)
+
+        void AutoWrite(string translate)
+        {
+            char[] letters = translate.ToCharArray();
+            for(int i = 0; i < letters.Length; i++)
+            {
+                SendKeys.Send(letters[i].ToString());
+            }
+            SendKeys.Send("{ENTER}");
+        }
+
+        string FilterOutput(string strRes)
         {
             for(int i = 0; i <= vs.Count; i++)
             {
                 if (strRes.Contains(vs[i]))
                 {
-                     if(i % 2 == 0)
+                    if(i % 2 == 0)
                     {
                         DoubleSTR res = new DoubleSTR();
                         res.IndonesianWord = vs[i];
@@ -94,7 +109,7 @@ namespace EdPerfectInterface
                     }
                 }
             }
-            return new DoubleSTR();
+            return "";
         }
 
         private void button2_Click(object sender, EventArgs e)
