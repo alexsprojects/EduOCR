@@ -76,11 +76,22 @@ namespace EdPerfectInterface
             {
                 if (strRes.Contains(vs[i]))
                 {
-                    DoubleSTR res = new DoubleSTR();
-                    res.EnglishWord = vs[i];
-                    res.IndonesianWord = vs[i + 1];
-                    
-                    return res;
+                     if(i % 2 == 0)
+                    {
+                        DoubleSTR res = new DoubleSTR();
+                        res.IndonesianWord = vs[i];
+                        res.EnglishWord = vs[i + 1];
+
+                        return res.EnglishWord;
+                    }
+                    else
+                    {
+                        DoubleSTR res = new DoubleSTR();
+                        res.EnglishWord = vs[i];
+                        res.IndonesianWord = vs[i + 1];
+
+                        return res.IndonesianWord;
+                    }
                 }
             }
             return new DoubleSTR();
