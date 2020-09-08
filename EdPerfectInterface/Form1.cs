@@ -68,7 +68,7 @@ namespace EdPerfectInterface
             Page page = engine.Process(img, PageSegMode.Auto);
             string result = page.GetText();
             listBox1.Items.Add(result);
-            DoubleSTR translation = FilterOutput(result);
+            string translation = FilterOutput(result);
         }
         DoubleSTR FilterOutput(string strRes)
         {
